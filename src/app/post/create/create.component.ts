@@ -11,22 +11,11 @@ import { PostService } from '../post.service';
 export class CreateComponent implements OnInit {
 
   form!: FormGroup;
-
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
   constructor(
     public postService: PostService,
     private router: Router
   ) { }
 
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required]),
@@ -34,25 +23,15 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
-  get f(){
+  get f() {
     return this.form.controls;
   }
 
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
-  submit(){
+  submit() {
     console.log(this.form.value);
-    this.postService.create(this.form.value).subscribe((res:any) => {
-         console.log('Post created successfully!');
-         this.router.navigateByUrl('post/index');
+    this.postService.create(this.form.value).subscribe((res: any) => {
+      console.log('Post created successfully!');
+      this.router.navigateByUrl('post/index');
     })
   }
 

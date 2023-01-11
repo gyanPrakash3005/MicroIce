@@ -12,23 +12,12 @@ export class ViewComponent implements OnInit {
 
   id!: number;
   post!: Post;
-
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
   constructor(
     public postService: PostService,
     private route: ActivatedRoute,
     private router: Router
    ) { }
 
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
   ngOnInit(): void {
     this.id = this.route.snapshot.params['postId'];
 
